@@ -354,6 +354,7 @@
 -analyzer:"C:/Program Files/Unity/Hub/Editor/2022.3.25f1/Editor/Data/Tools/Unity.SourceGenerators/Unity.SourceGenerators.dll"
 "Assets/Scripts/InteractZone.cs"
 "Assets/Scripts/InterfaceManager.cs"
+"Assets/Scripts/ObstacleManager.cs"
 "Assets/Scripts/Road.cs"
 "Assets/Scripts/RoadManager.cs"
 "Assets/Scripts/Runner.cs"

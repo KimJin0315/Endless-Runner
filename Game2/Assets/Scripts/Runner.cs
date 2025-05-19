@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Collections;
 using UnityEngine;
 
 public enum RoadLine
@@ -11,6 +12,14 @@ public enum RoadLine
 public class Runner : MonoBehaviour
 {
     [SerializeField] RoadLine roadLine;
+    [SerializeField] Rigidbody rigidbody;
+
+    [SerializeField] float positionx = 4.0f;
+
+    private void Awake()
+    {
+        rigidbody = GetComponent<Rigidbody>();
+    }
 
     void Start()
     {
@@ -20,6 +29,11 @@ public class Runner : MonoBehaviour
     void Update()
     {
         keyboard();
+    }
+
+    private void FixedUpdate()
+    {
+        Move();
     }
     void keyboard()
     {
@@ -40,6 +54,11 @@ public class Runner : MonoBehaviour
         }
 
 
+    }
+
+    void Move()
+    {
+        rigidbody.position = new Vector3(positionx * (int)roadLine, 0, 0);
     }
 
 }
