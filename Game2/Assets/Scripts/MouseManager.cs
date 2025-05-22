@@ -5,6 +5,11 @@ using UnityEngine;
 public class MouseManager : MonoBehaviour
 {
     [SerializeField] Texture2D texture2D;
+
+    private void Awake()
+    {
+        texture2D = Resources.Load<Texture2D>("Default");
+    }
     void Start()
     {
         Cursor.SetCursor(texture2D, Vector2.zero, CursorMode.ForceSoftware);
