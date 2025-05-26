@@ -15,6 +15,7 @@ public class Runner : MonoBehaviour
     [SerializeField] Rigidbody rigidbody;
 
     [SerializeField] float positionx = 4.0f;
+    [SerializeField] float speed = 1.0f;
 
     private void Awake()
     {
@@ -58,7 +59,7 @@ public class Runner : MonoBehaviour
 
     void Move()
     {
-        rigidbody.position = new Vector3(positionx * (int)roadLine, 0, 0);
+        rigidbody.position = new Vector3(positionx * (int)roadLine * speed, 0, 0);
     }
 
 }
