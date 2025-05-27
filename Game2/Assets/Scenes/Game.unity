@@ -603,7 +603,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c16cda9588e6c2c418ce5e0b244ea57a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
   offset: 40
   roads:
   - {fileID: 436099390}
@@ -1411,7 +1410,7 @@ MonoBehaviour:
   m_ShowCameraFrustum: 1
   m_IgnoreTimeScale: 0
   m_WorldUpOverride: {fileID: 0}
-  m_UpdateMethod: 2
+  m_UpdateMethod: 1
   m_BlendUpdateMethod: 1
   m_DefaultBlend:
     m_Style: 1
@@ -2092,6 +2091,51 @@ Transform:
   - {fileID: 364081505}
   - {fileID: 1464425201}
   - {fileID: 262830958}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1989856208
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1989856210}
+  - component: {fileID: 1989856209}
+  m_Layer: 0
+  m_Name: Speed Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1989856209
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1989856208}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36e670625b4340142b083ea1c2f65e67, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 30
+--- !u!4 &1989856210
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1989856208}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2009382790
@@ -3997,6 +4041,7 @@ MonoBehaviour:
   roadLine: 0
   rigidbody: {fileID: 0}
   positionx: 4
+  speed: 1
 --- !u!137 &5378159894171369815
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 0
@@ -5419,3 +5464,4 @@ SceneRoots:
   - {fileID: 1318312930}
   - {fileID: 753897394}
   - {fileID: 1884617626}
+  - {fileID: 1989856210}

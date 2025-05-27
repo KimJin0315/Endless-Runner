@@ -59,7 +59,12 @@ public class Runner : MonoBehaviour
 
     void Move()
     {
-        rigidbody.position = new Vector3(positionx * (int)roadLine * speed, 0, 0);
+        rigidbody.position = Vector3.Lerp
+        (
+             rigidbody.position, 
+             new Vector3(positionx * (int)roadLine, 0, 0), 
+             SpeedManager.Instance.Speed * Time.deltaTime
+        );
     }
 
 }

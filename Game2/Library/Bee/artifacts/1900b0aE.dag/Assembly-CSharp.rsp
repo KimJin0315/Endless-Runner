@@ -363,6 +363,7 @@
 "Assets/Scripts/Road.cs"
 "Assets/Scripts/RoadManager.cs"
 "Assets/Scripts/Runner.cs"
+"Assets/Scripts/SpeedManager.cs"
 "Assets/Scripts/TimeManager.cs"
 -langversion:9.0
 /deterministic
