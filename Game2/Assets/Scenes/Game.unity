@@ -446,6 +446,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5efe6691de2bb5844acbdc75a9517b08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startButton: {fileID: 1587523962}
 --- !u!4 &242445961
 Transform:
   m_ObjectHideFlags: 0
