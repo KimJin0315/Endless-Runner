@@ -10,6 +10,7 @@ public class RoadManager : MonoBehaviour
     private void OnEnable()
     {
         State.Subscribe(Condition.START, Execute);
+        State.Subscribe(Condition.FINISH, Execute);
     }
 
     void Execute()
@@ -44,6 +45,7 @@ public class RoadManager : MonoBehaviour
     private void OnDisable()
     {
         State.UnSubscribe(Condition.START, Execute);
+        State.UnSubscribe(Condition.FINISH, Execute);
     }
 
 }

@@ -44,9 +44,17 @@ public static class State
 
 
     }
-    public static void UnSubscribe(Condition condition, UnityAction unityAction)
+    public static void UnSubscribe(Condition condition, Action unityAction)
     {
-
+        switch (condition)
+        {
+            case Condition.START    : start += unityAction;
+                break;
+            case Condition.FINISH   : finish += unityAction;
+                break;
+            case Condition.RESUME   : resume += unityAction;
+                break;
+        }
     }
    
 }

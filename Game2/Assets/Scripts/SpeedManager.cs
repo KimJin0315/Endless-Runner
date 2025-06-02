@@ -14,6 +14,7 @@ public class SpeedManager : Singleton<SpeedManager>
     private void OnEnable()
     {
         State.Subscribe(Condition.START, Execute);
+        State.Subscribe(Condition.FINISH, Execute);
     }
 
     private void Execute()
@@ -36,6 +37,8 @@ public class SpeedManager : Singleton<SpeedManager>
     private void OnDisable()
     {
         State.UnSubscribe(Condition.START, Execute);
+        State.UnSubscribe(Condition.FINISH, Execute);
+
     }
 
 }
