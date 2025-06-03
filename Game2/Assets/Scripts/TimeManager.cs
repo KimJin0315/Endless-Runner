@@ -15,13 +15,18 @@ public class TimeManager : MonoBehaviour
 
     private void OnEnable()
     {
+        State.Subscribe(Condition.FINISH, Release);
         State.Subscribe(Condition.START, Execute);
-        State.Subscribe(Condition.FINISH, Execute);
     }
 
     void Execute()
     {
         StartCoroutine(Measure());
+    }
+
+    void Release()
+    {
+        StopAllCoroutines();
     }
 
     public IEnumerator Measure()
@@ -42,8 +47,7 @@ public class TimeManager : MonoBehaviour
 
     private void OnDisable()
     {
+        State.UnSubscribe(Condition.FINISH, Release);
         State.UnSubscribe(Condition.START, Execute);
-        State.UnSubscribe(Condition.FINISH, Execute);
-
     }
 }

@@ -5,6 +5,11 @@ using UnityEngine;
 public class Obstacles : MonoBehaviour, Collidable
 {
 
+   private void OnEnable()
+    {
+        State.Subscribe(Condition.FINISH, Release);
+    }
+
     public void Activate()
     {
         gameObject.SetActive(false);
@@ -12,10 +17,16 @@ public class Obstacles : MonoBehaviour, Collidable
 
     void Update()
     {
-        transform.Translate(Vector3.up * SpeedManager.Instance.Speed * Time.deltaTime);
-
-        
+        transform.Translate(Vector3.up * SpeedManager.Instance.Speed * Time.deltaTime);   
     }
 
+    void Release()
+    {
+        Destroy(this);
+    }
 
+    private void OnDisable()
+    {
+        State.UnSubscribe(Condition.FINISH, Release);
+    }
 }

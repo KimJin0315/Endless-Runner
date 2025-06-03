@@ -24,8 +24,8 @@ public class ObstacleManager : MonoBehaviour
     }
     private void OnEnable()
     {
+        State.Subscribe(Condition.FINISH, Release);
         State.Subscribe(Condition.START, Execute);
-        State.Subscribe(Condition.FINISH, Execute);
     }
 
     public void Create()
@@ -64,6 +64,10 @@ public class ObstacleManager : MonoBehaviour
     void Execute()
     {
         StartCoroutine(ActiveObstacle());
+    }
+    void Release()
+    {
+        StopAllCoroutines();
     }
 
     public IEnumerator ActiveObstacle()
@@ -108,9 +112,8 @@ public class ObstacleManager : MonoBehaviour
 
     private void OnDisable()
     {
+        State.UnSubscribe(Condition.FINISH, Release);
         State.UnSubscribe(Condition.START, Execute);
-        State.UnSubscribe(Condition.FINISH, Execute);
-
     }
 
 }

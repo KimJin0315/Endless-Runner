@@ -23,6 +23,7 @@ public class Runner : MonoBehaviour
     private void OnEnable()
     {
         State.Subscribe(Condition.FINISH, Die);
+        State.Subscribe(Condition.FINISH, Release);
 
         State.Subscribe(Condition.START, StateTrastion);
         State.Subscribe(Condition.START, InputSystem);
@@ -37,6 +38,10 @@ public class Runner : MonoBehaviour
     public void InputSystem()
     {
         StartCoroutine(Coroutine());
+    }
+    void Release()
+    {
+        StopAllCoroutines();
     }
 
     private void FixedUpdate()
@@ -91,6 +96,12 @@ public class Runner : MonoBehaviour
     {
         animator.SetTrigger("Start"); // 트리거 동작시키는 코드
     }
+
+    public void Synchronize()
+    {
+        animator.speed = SpeedManager.Instance.Speed / SpeedManager.Instance.IntializeSpeed;
+        
+    }
  
     private void OnTriggerEnter(Collider other)
     {
@@ -106,6 +117,7 @@ public class Runner : MonoBehaviour
     private void OnDisable()
     {
         State.UnSubscribe(Condition.FINISH, Die);
+        State.UnSubscribe(Condition.FINISH, Release);
 
         State.UnSubscribe(Condition.START, StateTrastion);
         State.UnSubscribe(Condition.START, InputSystem);
