@@ -5,9 +5,29 @@ using UnityEngine;
 
 public class CinemachineCamera : MonoBehaviour
 {
-    [SerializeField] Runner runenr;
+    [SerializeField] Runner runner;
 
     [SerializeField] CinemachineVirtualCamera cinemachineVirtualCamera;
 
+    private void OnEnable()
+    {
+        State.Subscribe(Condition.START, Follow);
+        State.Subscribe(Condition.FINISH, Observe);
+    }
 
+    public void Follow()
+    {
+        cinemachineVirtualCamera.Follow = runner.transform;
+    }
+
+    public void Observe()
+    {
+        cinemachineVirtualCamera.LookAt = runner.transform;
+    }
+
+    private void OnDisable()
+    {
+        State.UnSubscribe(Condition.START, Follow);
+        State.UnSubscribe(Condition.FINISH, Observe);
+    }
 }

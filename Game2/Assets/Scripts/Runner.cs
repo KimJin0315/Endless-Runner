@@ -91,6 +91,8 @@ public class Runner : MonoBehaviour
     void Die()
     {
         animator.Play("Die");
+
+        AudioManager.Instance.Listener("Conflict");
     }
     public void StateTrastion()
     {
